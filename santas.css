@@ -1,238 +1,223 @@
-:root {
-    --red: #bb0f0f;
-    --white: #FEFEFC;
-    --black: #010103;
-    --skin: #EF9967;
-    --body-background: linear-gradient(90deg, rgba(100,207,234,1) 0%, rgba(252,101,118,1) 33%, rgba(238,98,113,1) 49%, rgba(231,114,128,1) 65%, rgba(215,158,172,1) 75%, rgba(173,216,222,1) 86%, rgba(122,239,229,1) 100%);
-    --box-shadow-outer: 0 3px 20px rgba(0, 0, 0, 0.301);
-    --box-shadow-inner: rgb(139,5,30);
-background: linear-gradient(90deg, rgba(139,5,30,1) 0%, rgba(235,62,82,1) 48%, rgba(241,218,221,1) 100%);
-    --box-shadow-inner-dark: inset -2px -4px 20px -1px rgba(0, 0, 0, 0.322);
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
 body {
-    display: grid;
-    width: 100%;
-    height: 100vh;
-    background: var(--body-background);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+  background-color: #fff2c8;
 }
-h1{
-	text-align: left;
-	font-family: "Puppies Play";
-	font-size: 10vh;
-	color: rgb(139,5,30);
+.container {
+  width: 380px;
+  height: 500px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  
-.div_santa{
-	display: flex;
-	justify-content: center;
-	margin-top: 0px;
+.container *:before,
+.container *:after {
+  position: absolute;
+  content: "";
 }
-.santa_ji {
-    width: 300px;
-    height: 400px;
-    border-radius: 10vmin 10vmin 100% 100%;
-    background-color: var(--skin);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    box-shadow: var(--box-shadow-outer), var(--box-shadow-inner-dark);
-    transform: translateZ(0);
+.santa {
+  height: 220px;
+  width: 200px;
+  background-color: #e84701;
+  border-radius: 80px;
+  position: absolute;
+  left: 115px;
+  top: 200px;
+}
+.santa:before,
+.santa:after {
+  width: 40px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  background-color: #fff2c8;
+}
+.santa:before {
+  height: 130px;
+}
+.santa:after {
+  height: 40px;
+  bottom: -15px;
+}
+.hand-l {
+  background-color: #e84701;
+  height: 90px;
+  width: 105px;
+  position: absolute;
+  right: -30px;
+  top: 20px;
+  border-radius: 0 80px 0 0;
+}
+.hand-l:before {
+  margin: auto;
+  width: 35px;
+  height: 15px;
+  background-color: #ffffff;
+  top: 85px;
+  left: 71px;
+}
+.hand-l:after {
+  height: 15px;
+  width: 30px;
+  background-color: #fad2af;
+  left: 74px;
+  top: 101px;
+  border-radius: 0 0 30px 30px;
+}
+.hand-r {
+  height: 150px;
+  width: 180px;
+  border: 30px solid transparent;
+  border-bottom: 40px solid #e84701;
+  position: absolute;
+  left: -100px;
+  bottom: 150px;
+  border-radius: 50%;
+  animation: wave 1.5s infinite;
+  transform-origin: right;
+}
+@keyframes wave {
+  50% {
+    transform: rotate(15deg);
   }
-  .santa_cap {
-    position: absolute;
-    bottom: 68%;
-    display: flex;
-    justify-content: center;
-  }
-  .cap_body {
-    width: 320px;
-    height: 280px;
-    border-radius: 200px 10px 0 0;
-    background-color: var(--red);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    z-index: 2;
-    box-shadow: var(--box-shadow-outer), var(--box-shadow-inner);
-  }
-  .cap_body::before {
-    width: 360px;
-    height: 85px;
-    border-radius: 1rem;
-    background-color: var(--white);
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    box-shadow: var(--box-shadow-outer), var(--box-shadow-inner-dark);
-  }
-  .cap_tail {
-    width: 5rem;
-    height: 8rem;
-    border-radius: 0 0 0 9rem;
-    background-color: var(--red);
-    position: absolute;
-    top: 4.2%;
-    left: 85%;
-    display: flex;
-    justify-content: center;
-    transform: rotate(-30deg);
-    box-shadow: var(--box-shadow-outer), var(--box-shadow-inner-dark);
-  }
-  .cap_tail:before {
-    height: 7rem;
-    width: 7rem;
-    border-radius: 100%;
-    background-color: var(--white);
-    content: '';
-    display: block;
-    position: absolute;
-    top: 85%;
-    left: 10%;
-    z-index: 1;
-    box-shadow: var(--box-shadow-outer), var(--box-shadow-inner-dark);
-  }
-  .santa_eye {
-    width: 1.2rem;
-    height: 1.5rem;
-    border-radius: 100%;
-    background-color: var(--black);
-    position: absolute;
-    top: 40%;
-    display: flex;
-    justify-content: center;
-    z-index: 3;
-    animation: blink 2s ease-out infinite;
-  }
-  .santa_eye.left {
-    left: 30%;
-  }
-  .santa_eye.right {
-    right: 30%;
-  }
-  @keyframes blink {
-    1% {
-      transform: scaleY(0.1);
-    }
-    5%, 100% {
-      transform: scaleY(1.2);
-    }
-  }
-  .eye_brow {
-    position: absolute;
-    top: 31%;
-    box-shadow: var(--box-shadow-outer), var(--box-shadow-inner);
-    z-index: 4;
-  }
-  .eye_brow.left {
-    width: 5rem;
-    height: 2.3rem;
-    border-radius: 2rem 2rem 2rem 0;
-    background-color: var(--white);
-    left: 20%;
-  }
-  .eye_brow.right {
-    width: 5rem;
-    height: 2.3rem;
-    border-radius: 2rem 2rem 0 2rem;
-    background-color: var(--white);
-    right: 20%;
-  }
-
-  .santa_nose {
-    width: 5rem;
-    height: 4.5rem;
-    border-radius: 100%;
-    background-color: var(--skin);
-    position: absolute;
-    top: 42%;
-    z-index: 4;
-    box-shadow: var(--box-shadow-outer), var(--box-shadow-inner);
-  }
-  .mustache {
-    position: absolute;
-    top: 50%;
-    flex: 1 0 100%;
-    display: flex;
-    justify-content: center;
-    z-index: 3;
-  }
-  .mustache:before, .mustache:after {
-    content: '';
-    box-shadow: var(--box-shadow-outer), var(--box-shadow-inner);
-  }
-  .mustache:before {
-    width: 22rem;
-    height: 5rem;
-    border-radius: 20rem 0 20rem 0;
-    background-color: var(--white);
-    margin-right: -1rem;
-  }
-  .mustache:after {
-    width: 22rem;
-    height: 5rem;
-    border-radius: 0 20vmin 0 20vmin;
-    background-color: var(--white);
-  }
-  .santa_mouth {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 100%;
-    background-color: var(--black);
-    position: absolute;
-    bottom: 28%;
-    z-index: 2;
-    /* transform-origin: 50% 0;
-    transform: scaleY(0.1); */
-  }
-  .santa_beard {
-    width: 18rem;
-    height: 16rem;
-    border-radius: 0 0 10rem 10rem;
-    background-color: var(--white);
-    position: absolute;
-    top: 55%;
-    box-shadow: var(--box-shadow-outer), var(--box-shadow-inner-dark);
-  }
-  .santa_ear {
-    position: absolute;
-    top: 35%;
-    display: flex;
-    justify-content: center;
-    z-index: -1;
-    box-shadow: var(--box-shadow-outer), var(--box-shadow-inner);
-  }
-  .santa_ear.left {
-    width: 1rem;
-    height: 3.8rem;
-    border-radius: 2rem 0 0 2rem;
-    background-color: var(--skin);
-    right: 100%;
-    
-  }
-  .santa_ear.right {
-    width: 1rem;
-    height: 3.8rem;
-    border-radius: 0 2rem 2rem 0;
-    background-color: var(--skin);
-    left: 100%;
-  
-  }
- .mustache {
-      cursor: ew-resize;
-	  	position: relative;
- }
+}
+.hand-r:before {
+  width: 35px;
+  height: 15px;
+  background-color: #ffffff;
+  transform: rotate(-50deg);
+  top: 68px;
+  left: -22px;
+}
+.hand-r:after {
+  width: 30px;
+  height: 15px;
+  background-color: #fad2af;
+  transform: rotate(-50deg);
+  left: -31px;
+  top: 58px;
+  border-radius: 15px 15px 0 0;
+}
+.face {
+  position: absolute;
+  margin: auto;
+  height: 180px;
+  width: 180px;
+  background-color: #fad2af;
+  border: 25px solid #f2e6da;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  bottom: 140px;
+}
+.beard {
+  position: absolute;
+  height: 90px;
+  width: 180px;
+  background-color: #ffffff;
+  border-radius: 0 0 90px 90px;
+  right: -25px;
+  bottom: -25px;
+}
+.beard:before {
+  width: 55px;
+  height: 25px;
+  background-color: #f2e6da;
+  border-radius: 20px 0;
+  left: 34px;
+}
+.beard:after {
+  height: 25px;
+  width: 55px;
+  background-color: #f2e6da;
+  border-radius: 0 20px;
+  right: 34px;
+}
+.eyes {
+  height: 12px;
+  width: 12px;
+  background-color: #0078ca;
+  border-radius: 50%;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  box-shadow: 38px 0 #0078ca, 19px 20px #f69697;
+}
+.eyes:before {
+  height: 12px;
+  width: 25px;
+  background-color: #ffffff;
+  border-radius: 10px 0;
+  left: -10px;
+  bottom: 20px;
+}
+.eyes:after {
+  height: 12px;
+  width: 25px;
+  background-color: #ffffff;
+  border-radius: 0 10px;
+  left: 32px;
+  bottom: 20px;
+}
+.hat {
+  position: absolute;
+  height: 60px;
+  width: 120px;
+  background-color: #e84701;
+  top: -98px;
+  left: 85px;
+  border-radius: 0 0 60px 60px;
+}
+.hat:before {
+  height: 40px;
+  width: 40px;
+  background-color: #ffffff;
+  left: 100px;
+  top: -15px;
+  border-radius: 50%;
+}
+.belt {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background-color: #000000;
+  top: 100px;
+}
+.belt:before {
+  height: 100%;
+  width: 40px;
+  border: 7px solid #ffdc2e;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+.belt:after {
+  height: 5px;
+  width: 15px;
+  background-color: #ffdc2e;
+  left: 100px;
+  top: 12px;
+}
+.shoe {
+  height: 20px;
+  width: 20px;
+  background-color: #000000;
+  position: absolute;
+  top: 220px;
+  left: 60px;
+  border-radius: 20px 0 0 0;
+}
+.shoe:before {
+  height: 20px;
+  width: 20px;
+  background-color: #000000;
+  top: 0;
+  left: 60px;
+  border-radius: 0 20px 0 0;
+}
